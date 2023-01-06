@@ -1,12 +1,11 @@
-import React, {Component} from "react";
+import React, { Component } from 'react';
+import UpdatedComp from './HigherOrder';
 
 export class Click extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            count: 0
-        };
+        this.state = { count: 0 };
     }
     UpdateClick = () => {
         this.setState({ count: this.state.count + 1 });
@@ -15,10 +14,11 @@ export class Click extends Component {
         const{ count } = this.state;
         return(
             <div>
-                <button onClick = {this.UpdateClick}>clicked {count} times</button>
+                <button onClick = {this.UpdateClick}>
+                    {this.props.name}clicked {count} times</button>
             </div>
         )
     }
 }
 
-export default Click;
+export default UpdatedComp(Click);
